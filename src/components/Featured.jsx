@@ -1,11 +1,11 @@
-import img1 from '../assets/sirio-7_ZNLVlJchs-unsplash.jpg'
-import img2 from '../assets/rayul-_M6gy9oHgII-unsplash.jpg'
+import img1 from '../assets/blueMan.png'
+
 export default function Featured(){
 return(
     <div className="grapper flex justify-between pt-9 items-center max-md:flex-col-reverse">
         <div className="images w-1/2 flex justify-between max-md:w-full">
-<img src={img1} alt="" className='object-cover w-1/2 pr-2'/>
-<img src={img2} alt="" className='object-cover w-1/2' />
+<img src={img1} alt="" className='object-cover w-9/12 pr-2 m-auto'/>
+
         </div>
         <div className="text w-1/2 pl-16 max-md:w-full max-sm:pl-8">
             <h4 className='text-sky-500 font-semibold pb-4'>Featured Products</h4>

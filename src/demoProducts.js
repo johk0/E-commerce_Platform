@@ -1,0 +1,31 @@
+let demoProducts=[
+    {
+id:"c1",
+name:"T-shirt",
+Year:"2024",
+Brand:"NIKE",
+Price:"38.00$"
+    },
+    {
+id:"c2",
+name:"pants",
+Year:"2023",
+Brand:"adidas",
+Price:"38.00$"
+    },
+    {
+id:"c3",
+name:"T-shirt",
+Year:"2024",
+Brand:"NIKE",
+Price:"38.00$"
+    },
+    {
+id:"c3",
+name:"T-shirt",
+Year:"2024",
+Brand:"NIKE",
+Price:"38.00$"
+    }
+]
+export default demoProducts

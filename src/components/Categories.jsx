@@ -7,7 +7,7 @@ function Categories() {
     const images = [img1, img2, img3, img4, img5];
     const text = ["Toys & Games", "Sports Gear", "devices", "Clothes", "furniture"];
   return (
-  <div className="categories w-4/5 flex justify-around flex-wrap m-auto py-5 pb-9  rounded-xl">
+  <div className="categories w-4/5 flex justify-around flex-wrap m-auto py-7 mb-6 rounded-xl bg-white">
   {
     images.map((item,index)=>(
     <div key={index} className='flex flex-col items-center'>

@@ -1,3 +1,70 @@
 .active {
 	color: blue !important;
 }
+section {
+	--col-orange: #23a6f0;
+	--col-dark: #0c0f14;
+	--col-darkGray: #52555a;
+	--col-gray: #aeaeae;
+
+	width: fit-content;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	background-color: var(--col-dark);
+	border-radius: 20px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+.label {
+	padding: 8px 18px;
+	transition: all 200ms;
+	
+}
+
+.label input[type="radio"] {
+	display: none;
+}
+.label > svg {
+	transition: all 200ms;
+	fill: var(--col-gray);
+	width: 14px;
+}
+.label:hover:not(:has(input:checked)) > .icons {
+	fill: #23a6f0;
+	opacity: 0.6;
+}
+.label:hover:not(:has(input:checked)) > svg {
+	fill: #23a6f0;
+	opacity: 0.6;
+}
+.label::before {
+	content: "";
+	display: block;
+	width: 0%;
+	height: 2px;
+	border-radius: 5px;
+	position: relative;
+	left: 50%;
+	top: 20px;
+	background: var(--col-orange);
+	transition: all 200ms;
+}
+.label > svg {
+	transition: 300ms;
+	fill: var(--col-darkGray);
+	margin-top: 0;
+}
+/* .label:has(input:checked) > svg {
+	fill: var(--col-orange);
+	scale: 1.2;
+	margin-top: -5px;
+} */
+
+
+.label.active >svg{
+	fill: #23a6f0;
+}
+.label.active >p{
+	color: #23a6f0;
+}

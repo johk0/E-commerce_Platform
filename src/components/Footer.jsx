@@ -1,10 +1,20 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faFacebook, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram, faYoutube} from '@fortawesome/free-brands-svg-icons';
+import {
+	faLeaf,
+} from "@fortawesome/free-solid-svg-icons";
 export default function Footer(){
     return(
         <>
         <div className="flex justify-between bg-neutral-200 items-center py-2 px-4">
-        <h1 className="pr-4 font-bold text-2xl pb-1">Bandage</h1>
+        <div className="flex items-center">
+						<a
+							href="/"
+							className="text-2xl font-bold text-blue-500 flex items-center">
+							<FontAwesomeIcon icon={faLeaf} className="mr-2" />
+							<span>Candleleaf</span>
+						</a>
+					</div>
         <div className="social w-fit text-end text-sky-500">
                 <p>Follow Us:
                      <span>
@@ -21,7 +31,7 @@ export default function Footer(){
                     </p>
             </div>
         </div>
-        <footer className="px-14 py-14 flex gap-x-3 gap-y-9 justify-between flex-wrap items-center  lg:items-start">
+        <footer className="px-14 py-14 flex gap-x-3 gap-y-9 justify-between flex-wrap items-center  lg:items-start max-sm::flex max-sm:flex-col">
            <ul className="px-4 text-sm max-sm:m-auto max-sm:pl-9">
             <li className="font-bold pb-3 text-lg text-slate-800">Company info</li>
             <li className="text-neutral-500 font-semibold pb-2">About Us</li>

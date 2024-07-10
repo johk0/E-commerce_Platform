@@ -1,18 +1,21 @@
 import { createContext, useState } from "react";
 
 export const Contxt = createContext({
-	product: false,
-	HandleProduct: () => {},
+	Cart:[],
+	HandleAddToCart:()=>{}
 });
 
-export default function Con({ children }) {
-	const [productActive, setProduct] = useState(false);
-	function HandleProducts() {
-		setProduct((prev) => !prev);
+export default function Context({ children }) {
+	const [cart, setCart] = useState([]);
+	function HandleCart(index) {
+		setCart((prev)=>{
+			console.log(index)
+			return [index,...prev]
+		})
 	}
 	const ctxval = {
-		product: productActive,
-		HandleProduct: HandleProducts,
+		Cart: cart,
+		HandleAddToCart: HandleCart,
 	};
 	return <Contxt.Provider value={ctxval}>{children}</Contxt.Provider>;
 }
