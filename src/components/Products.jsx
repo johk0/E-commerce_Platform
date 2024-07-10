@@ -22,9 +22,9 @@ export default function Products() {
 			<p className="text-gray-500 pt-2 pb-8 max-sm:text-center">
 				Problems trying to resolve the conflict between
 			</p>
-			<div className="products pb-7 grid  place-items-center gap-y-6 grid-cols-[repeat(auto-fill,_minmax(320px,_1fr))] w-full px-7 max-sm:px-2">
+			<div className="products pb-7 grid  place-items-center gap-y-6 grid-cols-[repeat(auto-fill,_minmax(320px,_1fr))] 2xl:grid-cols-[repeat(4,_minmax(320px,_1fr))] w-full px-7 max-sm:px-2 max-w-[1500px]">
 			{demoProducts.map((item, index) => (
-				index<3?(
+				index<4?(
 					<div key={index} className="product text-center w-80 bg-white py-5 px-2 rounded-2xl">
           <div className="image w-11/12 m-auto h-1/2">
             <img

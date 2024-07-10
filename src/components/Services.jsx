@@ -13,8 +13,8 @@ export default function Services() {
 					Problems trying to resolve the conflict between{" "}
 				</p>
 			</div>
-			<div className="cards pt-12 grid gap-y-9 grid-cols-[repeat(auto-fill,_minmax(370px,_1fr))] w-full">
-				<div className="card">
+			<div className="cards pt-12 flex justify-around gap-y-9 flex-wrap w-full">
+				<div className="card md:max-w-[33%]">
 					<FontAwesomeIcon
 						icon={faBookOpenReader}
 						className="text-sky-500 text-6xl pb-5"
@@ -24,7 +24,7 @@ export default function Services() {
 						Enjoy quick and effortless purchases with our intuitive interface.
 					</p>
 				</div>
-				<div className="card">
+				<div className="card md:max-w-[33%]">
 					<FontAwesomeIcon
 						icon={faBook}
 						className="text-sky-500 text-6xl pb-5"
@@ -34,7 +34,7 @@ export default function Services() {
 						Track your orders status from processing to delivery in real-time.
 					</p>
 				</div>
-				<div className="card">
+				<div className="card md:max-w-[33%]">
 					<FontAwesomeIcon
 						icon={faArrowTrendUp}
 						className="text-sky-500 text-6xl pb-5"
