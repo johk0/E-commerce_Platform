@@ -1,68 +1,196 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body{
+  background-color: #EFF3F6;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+ .li-small:hover{
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+     transition:all 0.3s ease-in-out ;
+    }
+    .nav-ul
+    {
+        position: relative;
+    }
+    .nav-ul.clicked{
+        
+    transition:all 0.7s ease-in-out ;
 }
+.landing_img::after{
+position: absolute;
+content: "";
+width: 70%;
+height: 70%;
+background-color: white;
+top: 40%;
+left: 50%;
+transform: translate(-50%,-50%);
+border-radius: 50%;
+z-index: -1;
+}
+.landing_img::before{
+position: absolute;
+content: "";
+width: 10%;
+height: 10%;
+background-color: white;
+top: 16%;
+left: 7%;
+transform: translate(-50%,-50%);
+border-radius: 50%;
+z-index: -1;
+}
+.grapper{
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 30px;
+}
+/* companies auto scroll */
+.composlide{
+    width: 100%;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+   justify-content: end;
+   align-items: center;
+    }
+    .track{
+      width: calc(110px*12);
+      animation: scroll 20s linear infinite alternate-reverse;
+      display: flex;
+      padding: 30px 0;
+    }
+    .composlide .track img{
+       width: 50px;
+       height: 50px;
+        display: flex;
+        align-items: center;
+        margin: 0 30px;
+        object-fit: contain;
+    }
+    
+    .composlide::after,
+    .composlide::before{
+    
+      background:linear-gradient(to right,rgba(255,255,255,1)0%,
+      rgba(255,255,255,0)100%);
+      content: "";
+      height: 100%;
+      position: absolute;
+      width: 15%;
+      z-index:2;
+    }
+    .composlide::after{
+      right: 0;
+      top: 0;
+      transform: rotateZ(180deg);
+    }.composlide::before{
+      left: 0;
+      top: 0;
+    }
+    @keyframes scroll{
+      0%{
+        transform: translateX(0);
+      }
+    
+      100%{
+        transform: translateX(calc(-50px*9));
+      }
+    }
+    @media (max-width:767px) {
+        
+        .explore-container{
+            height: 900px;
+        }
+    }
+    .explore::after{
+ content: "";
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ background: rgba(45, 139, 192, 0.75);
+ top: 0;
+ left: 0;
+ z-index: -1;
+    }
+    .footerEmail::placeholder{
+      transition: opacity 0.5s;
+      
+    }
+    .footerEmail:focus::placeholder{
+      opacity: 0;
+    }
+    .product:hover button:first-child{
+      opacity: 1;
+      transition: all 0.5s ease-in-out;
+    }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+    section {
+      --col-orange: #23A6F0;
+      --col-dark: #0c0f14;
+      --col-darkGray: #52555a;
+      --col-gray: #aeaeae;
+    
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      background-color: var(--col-dark);
+      border-radius: 20px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
+    .label {
+      padding: 8px 18px;
+      transition: all 200ms;
+      display: inline-block;
+    }
+    
+    .label input[type="radio"] {
+      display: none;
+    }
+    .label > svg {
+      transition: all 200ms;
+      fill: var(--col-gray);
+      width: 14px;
+    }
+    .label:hover:not(:has(input:checked)) > .icons {
+      fill: #23A6F0;
+      opacity: 0.6;
+    }
+    .label:hover:not(:has(input:checked)) > svg {
+      fill: #23A6F0;
+      opacity: 0.6;
+    }
+    .label::before {
+      content: "";
+      display: block;
+      width: 0%;
+      height: 2px;
+      border-radius: 5px;
+      position: relative;
+      left: 50%;
+      top: 20px;
+      background: var(--col-orange);
+      transition: all 200ms;
+    }
+    .label > svg {
+      transition: 300ms;
+      fill: var(--col-darkGray);
+      margin-top: 0;
+    }
+    .label:has(input:checked) > svg {
+      fill: var(--col-orange);
+      scale: 1.2;
+      margin-top: -5px;
+    }
+    
+    .label:has(input:checked)::before {
+      width: 100%;
+      left: 0;
+      top: 25px;
+    }
+    
