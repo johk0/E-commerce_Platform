@@ -68,3 +68,6 @@ section {
 .label.active >p{
 	color: #23a6f0;
 }
+.cart{
+	width: 20px;
+}

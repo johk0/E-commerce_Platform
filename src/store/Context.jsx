@@ -2,7 +2,8 @@ import { createContext, useState } from "react";
 
 export const Contxt = createContext({
 	Cart:[],
-	HandleAddToCart:()=>{}
+	HandleAddToCart:()=>{},
+	HandleRemove:()=>{}
 });
 
 export default function Context({ children }) {
@@ -13,9 +14,13 @@ export default function Context({ children }) {
 			return [index,...prev]
 		})
 	}
+	function HandleRemover(itemToRemove) {
+        setCart((prev) => prev.filter((item) => item !== itemToRemove));
+    }
 	const ctxval = {
 		Cart: cart,
 		HandleAddToCart: HandleCart,
+        HandleRemove:HandleRemover
 	};
 	return <Contxt.Provider value={ctxval}>{children}</Contxt.Provider>;
 }
