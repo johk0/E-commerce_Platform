@@ -5,6 +5,9 @@
 body {
 	background-color: #eff3f6;
 }
+* {
+	scroll-behavior: smooth;
+}
 
 .li-small:hover {
 	transition: all 0.3s ease-in-out;
