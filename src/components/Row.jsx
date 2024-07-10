@@ -12,7 +12,7 @@ export default function Row(){
                 </p>
                 <p> 
                 <FontAwesomeIcon icon={faEnvelope} className="pl-2" />
-                <span className="pl-2 text-sm">michelle.rivera@example.com</span>
+                <span className="pl-2 text-sm">Tech-it-easy@gmail.com</span>
                 </p>
             </div>
             <div className="text w-1/3">
