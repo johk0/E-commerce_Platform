@@ -9,7 +9,7 @@ export default function Explore(){
                     <img src={img1} alt="" className='max-h-full object-cover w-full absolute z-0'/>
                     <div className="explore absolute z-10 bottom-0 py-5 px-7 max-sm:py-3">
                         <h2 className='py-4 font-bold text-xl text-white max-sm:py-3'>Product Of The Week</h2>
-                        <button className='py-3 text-white border-white border-2 px-4 max-sm:py-2'>Explore More</button>
+                        <button className='py-3 text-white border-white border-2 px-4 max-sm:py-2 exploreButton'>Explore More</button>
                     </div>
                 </div>
                 <div className="two flex flex-col w-1/2 gap-y-2 max-md:w-full max-md:h-1/2" >
@@ -17,14 +17,14 @@ export default function Explore(){
                     <img src={img2} alt=""  className='w-full max-h-full object-cover'/>
                     <div className="explore absolute z-10 bottom-0 py-3 px-7 ">
                         <h2 className='py-3 font-bold text-xl text-white'>Product Of The Week</h2>
-                        <button className='py-3 text-white border-white border-2 px-4'>Explore More</button>
+                        <button className='py-3 text-white border-white border-2 px-4 exploreButton'>Explore More</button>
                     </div>
                     </div>
                     <div className="second h-1/2 relative">
                     <img src={img3} alt="" className=' w-full max-h-full object-cover'/>
                     <div className="explore absolute z-10 bottom-0 py-4 px-7 ">
                         <h2 className='py-4 font-bold text-xl text-white'>Product Of The Week</h2>
-                        <button className='py-3 text-white border-white border-2 px-4'>Explore More</button>
+                        <button className='py-3 text-white border-white border-2 px-4 exploreButton'>Explore More</button>
                     </div>
                     </div>
                 </div>

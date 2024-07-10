@@ -6,7 +6,7 @@ import {
 export default function Footer(){
     return(
         <>
-        <div className="flex justify-between bg-neutral-200 items-center py-2 px-4">
+        <div className="flex justify-between bg-white items-center py-6 px-4">
         <div className="flex items-center">
 						<a
 							href="/"

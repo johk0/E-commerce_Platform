@@ -11,7 +11,7 @@ function Categories() {
   {
     images.map((item,index)=>(
     <div key={index} className='flex flex-col items-center'>
-        <div className="image w-24 m-3 p-2 h-24 rounded-[50%] bg-neutral-300 flex justify-center items-center hover:scale-[1.3] [transition:all_0.6s] cursor-pointer">
+        <div className="image w-24 m-3 p-2 h-24 rounded-[50%] bg-slate-100 flex justify-center items-center hover:scale-[1.3] [transition:all_0.6s] cursor-pointer">
             <img src={item} alt="" className='object-contain w-4/5 h-4/5'/>
         </div>
         <h3 className='pt-2 font-semibold'>{text[index]}</h3>

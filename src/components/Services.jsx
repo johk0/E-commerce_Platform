@@ -8,12 +8,12 @@ export default function Services() {
 	return (
 		<div className="grapper text-center pt-11 max-sm:px-6">
 			<div className="text">
-				<h2 className="font-semibold text-xl pb-2">Why Us?</h2>
+				<h2 className="font-semibold text-2xl pb-2">Why Us?</h2>
 				<p className="text-neutral-500 ">
 					Problems trying to resolve the conflict between{" "}
 				</p>
 			</div>
-			<div className="cards pt-12 grid gap-y-9 grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))] w-full">
+			<div className="cards pt-12 grid gap-y-9 grid-cols-[repeat(auto-fill,_minmax(370px,_1fr))] w-full">
 				<div className="card">
 					<FontAwesomeIcon
 						icon={faBookOpenReader}

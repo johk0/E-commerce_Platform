@@ -3,8 +3,8 @@ import img1 from '../assets/blueMan.png'
 export default function Featured(){
 return(
     <div className="grapper flex justify-between pt-9 items-center max-md:flex-col-reverse">
-        <div className="images w-1/2 flex justify-between max-md:w-full">
-<img src={img1} alt="" className='object-cover w-9/12 pr-2 m-auto'/>
+        <div className="images w-1/2 flex justify-end max-md:w-full ">
+<img src={img1} alt="" className='object-cover w-9/12 pr-2 '/>
 
         </div>
         <div className="text w-1/2 pl-16 max-md:w-full max-sm:pl-8">
