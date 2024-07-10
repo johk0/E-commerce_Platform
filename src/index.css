@@ -1,155 +1,193 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
 
-.burger{
-    width: 35px;
-    height: 25px;
-    position: relative;
-    cursor: pointer;
+body {
+	background-color: #eff3f6;
+}
 
- }
- .burger span{
-    background-color: black;
-    height: 4px;
-    width: 100%;
-    position: absolute;
-display: block;
-transition: ease 0.3s;
- }
- .burger span:nth-child(2){
-  top: 10px;
- }
- .burger span:last-child{
-top:20px;
- }
- .burger.click span:first-child{
-    transform: rotatez(45deg);
-    top: 50%;
- }
- .burger.click span:nth-child(2){
-    display: none;
- }
- .burger.click span:last-child{
-    transform: rotatez(-45deg);
-    top: 50%;
- }
- .li-small:hover{
-
-     transition:all 0.3s ease-in-out ;
-    }
-    .nav-ul
-    {
-    
-        position: relative;
-    }
-    .nav-ul.clicked{
-        
-    transition:all 0.7s ease-in-out ;
+.li-small:hover {
+	transition: all 0.3s ease-in-out;
 }
-.landing_img::after{
-position: absolute;
-content: "";
-width: 70%;
-height: 70%;
-background-color: white;
-top: 40%;
-left: 50%;
-transform: translate(-50%,-50%);
-border-radius: 50%;
-z-index: -1;
+.nav-ul {
+	position: relative;
 }
-.landing_img::before{
-position: absolute;
-content: "";
-width: 10%;
-height: 10%;
-background-color: white;
-top: 16%;
-left: 7%;
-transform: translate(-50%,-50%);
-border-radius: 50%;
-z-index: -1;
+.nav-ul.clicked {
+	transition: all 0.7s ease-in-out;
 }
-.grapper{
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 30px;
+.landing_img::after {
+	position: absolute;
+	content: "";
+	width: 70%;
+	height: 70%;
+	background-color: white;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	z-index: -1;
+}
+.landing_img::before {
+	position: absolute;
+	content: "";
+	width: 10%;
+	height: 10%;
+	background-color: white;
+	top: 16%;
+	left: 7%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	z-index: -1;
+}
+.grapper {
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-bottom: 30px;
 }
 /* companies auto scroll */
-.composlide{
-    width: 100%;
-    position: relative;
-    margin: auto;
-    overflow: hidden;
-    display: flex;
-   justify-content: end;
-   align-items: center;
-    }
-    .track{
-      width: calc(110px*12);
-      animation: scroll 20s linear infinite alternate-reverse;
-      display: flex;
-      padding: 30px 0;
-    }
-    .composlide .track img{
-       width: 50px;
-       height: 50px;
-        display: flex;
-        align-items: center;
-        margin: 0 30px;
-        object-fit: contain;
-    }
-    
-    .composlide::after,
-    .composlide::before{
-    
-      background:linear-gradient(to right,rgba(255,255,255,1)0%,
-      rgba(255,255,255,0)100%);
-      content: "";
-      height: 100%;
-      position: absolute;
-      width: 15%;
-      z-index:2;
-    }
-    .composlide::after{
-      right: 0;
-      top: 0;
-      transform: rotateZ(180deg);
-    }.composlide::before{
-      left: 0;
-      top: 0;
-    }
-    @keyframes scroll{
-      0%{
-        transform: translateX(0);
-      }
-    
-      100%{
-        transform: translateX(calc(-50px*9));
-      }
-    }
-    @media (max-width:767px) {
-        
-        .explore-container{
-            height: 900px;
-        }
-    }
-    .explore::after{
- content: "";
- position: absolute;
- width: 100%;
- height: 100%;
- background: rgba(45, 139, 192, 0.75);
- top: 0;
- left: 0;
- z-index: -1;
-    }
-    .footerEmail::placeholder{
-      transition: opacity 0.5s;
-      
-    }
-    .footerEmail:focus::placeholder{
-      opacity: 0;
-    }
+.composlide {
+	width: 100%;
+	position: relative;
+	margin: auto;
+	overflow: hidden;
+	display: flex;
+	justify-content: end;
+	align-items: center;
+}
+.track {
+	width: calc(110px * 12);
+	animation: scroll 20s linear infinite alternate-reverse;
+	display: flex;
+	padding: 30px 0;
+}
+.composlide .track img {
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	margin: 0 30px;
+	object-fit: contain;
+}
+
+.composlide::after,
+.composlide::before {
+	background: linear-gradient(
+		to right,
+		rgba(255, 255, 255, 1) 0%,
+		rgba(255, 255, 255, 0) 100%
+	);
+	content: "";
+	height: 100%;
+	position: absolute;
+	width: 15%;
+	z-index: 2;
+}
+.composlide::after {
+	right: 0;
+	top: 0;
+	transform: rotateZ(180deg);
+}
+.composlide::before {
+	left: 0;
+	top: 0;
+}
+@keyframes scroll {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(calc(-50px * 9));
+	}
+}
+@media (max-width: 767px) {
+	.explore-container {
+		height: 900px;
+	}
+}
+.explore::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(45, 139, 192, 0.75);
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+.footerEmail::placeholder {
+	transition: opacity 0.5s;
+}
+.footerEmail:focus::placeholder {
+	opacity: 0;
+}
+.product:hover button:first-child {
+	opacity: 1;
+	transition: all 0.5s ease-in-out;
+}
+
+section {
+	--col-orange: #23a6f0;
+	--col-dark: #0c0f14;
+	--col-darkGray: #52555a;
+	--col-gray: #aeaeae;
+
+	width: fit-content;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	background-color: var(--col-dark);
+	border-radius: 20px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+.label {
+	padding: 8px 18px;
+	transition: all 200ms;
+	display: inline-block;
+}
+
+.label input[type="radio"] {
+	display: none;
+}
+.label > svg {
+	transition: all 200ms;
+	fill: var(--col-gray);
+	width: 14px;
+}
+.label:hover:not(:has(input:checked)) > .icons {
+	fill: #23a6f0;
+	opacity: 0.6;
+}
+.label:hover:not(:has(input:checked)) > svg {
+	fill: #23a6f0;
+	opacity: 0.6;
+}
+.label::before {
+	content: "";
+	display: block;
+	width: 0%;
+	height: 2px;
+	border-radius: 5px;
+	position: relative;
+	left: 50%;
+	top: 20px;
+	background: var(--col-orange);
+	transition: all 200ms;
+}
+.label > svg {
+	transition: 300ms;
+	fill: var(--col-darkGray);
+	margin-top: 0;
+}
+.label:has(input:checked) > svg {
+	fill: var(--col-orange);
+	scale: 1.2;
+	margin-top: -5px;
+}
+
+.label:has(input:checked)::before {
+	width: 100%;
+	left: 0;
+	top: 25px;
+}
