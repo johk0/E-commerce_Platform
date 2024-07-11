@@ -8,7 +8,8 @@ import Services from "/src/components/Services.jsx";
 
 import Categories from "../../components/categories";
 import "./home.css";
-const index = () => {
+const HomePage = () => {
+
 	return (
 		<>
 			<Landing />
@@ -22,4 +23,4 @@ const index = () => {
 	);
 };
 
-export default index;
+export default HomePage;

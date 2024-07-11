@@ -12,10 +12,10 @@ import img from "../assets/rayul-_M6gy9oHgII-unsplash.jpg";
 import { Contxt } from "@/store/Context";
 import demoProducts from "@/demoProducts";
 
-export default function ProductDetails() {
+export default function ProductDetails({id}) {
     const context = useContext(Contxt);
 	console.log(context.component);
-    const item = demoProducts.find((iterator) => iterator.id === context.component);
+    const item = demoProducts.find((iterator) => iterator.id === id);
 	console.log(item)
 
     if (!item) {
@@ -62,7 +62,7 @@ export default function ProductDetails() {
                         ></FontAwesomeIcon>
                         <span className="pl-3 text-neutral-500">10 Reviews</span>
                     </div>
-                    <p className="text-2xl font-bold">$ 1000</p>
+                    <p className="text-2xl font-bold">${item.Price}</p>
                     <p className="text-sky-500 py-2">
                         <span className="text-neutral-600">Availability :</span> In Stock
                     </p>
@@ -86,20 +86,7 @@ export default function ProductDetails() {
                         >
                             Add To Cart
                         </button>
-                        <div className="image_links   bottom-1  text-center pl-3 flex items-center">
-                            <FontAwesomeIcon
-                                icon={faHeart}
-                                className="px-2 bg-white py-2 rounded-[50%] mx-1"
-                            />
-                            <FontAwesomeIcon
-                                icon={faCartShopping}
-                                className="px-2 bg-white py-2 rounded-[50%] mx-1"
-                            />
-                            <FontAwesomeIcon
-                                icon={faEye}
-                                className="px-2 bg-white py-2 rounded-[50%] mx-1"
-                            />
-                        </div>
+                       
                     </div>
                 </div>
             </div>

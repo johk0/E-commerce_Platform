@@ -96,8 +96,8 @@ setDiscount(0.3);
           <div className="bg-white p-4 rounded-lg shadow mb-4">
             <h2 className="text-xl font-bold mb-4">Calculated Shipping</h2>
             <form className="mb-4">
-              <select className="w-full mb-2 p-2 border rounded" >
-              <option value="" disabled selected>Select your Country</option>
+              <select defaultValue="option1" className="w-full mb-2 p-2 border rounded" >
+              <option value="option1" disabled >Select your Country</option>
                 <option>Egypt</option>
                 <option>Saudi Arabia</option>
                 <option>Kuwait</option>

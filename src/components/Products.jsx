@@ -44,7 +44,7 @@ export default function Products() {
               <button
                 
                 className="rounded-2xl bg-black opacity-0 text-white w-fit h-fit text-center p-2 px-3 text-sm">
-             <Link to="/product" onClick={item.id}>Buy Now</Link>
+             <Link to={`/product/${item.id}`} >View</Link>
               </button>
               <button
                 onClick={() =>Context.HandleAddToCart(item.id)}
@@ -89,7 +89,7 @@ export default function Products() {
 							<button
 								onClick={()=>{Context.HandleAddToCart(item.id)}}
 								className="rounded-2xl bg-black opacity-0 text-white w-fit h-fit text-center p-2 px-3 text-sm">
-							<Link to="/product" onClick={item.id}>Buy Now</Link>
+							  <Link to={`/product/${item.id}`} >View</Link>
 							</button>
 							<button
 								onClick={()=>{Context.HandleAddToCart(item.id)}}

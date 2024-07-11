@@ -30,6 +30,10 @@ section {
 	fill: var(--col-gray);
 	width: 14px;
 }
+.label > svg.s {
+
+	width: 1rem;
+}
 .label:hover:not(:has(input:checked)) > .icons {
 	fill: #23a6f0;
 	opacity: 0.6;
@@ -52,7 +56,7 @@ section {
 }
 .label > svg {
 	transition: 300ms;
-	fill: var(--col-darkGray);
+	fill: white;
 	margin-top: 0;
 }
 /* .label:has(input:checked) > svg {

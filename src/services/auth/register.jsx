@@ -60,7 +60,7 @@ export function RegisterForm() {
 							<Label htmlFor="username">Name</Label>
 							<Input
 								id="username"
-								placeholder="Max Robinson"
+								placeholder="Yousef Ahmed"
 								value={formData.username}
 								onChange={handleInputChange}
 								required
