@@ -3,11 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faStar } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { faStar as farStar } from "@fortawesome/free-regular-svg-icons";
-import {
-    faCartShopping,
-    faHeart,
-    faEye,
-} from "@fortawesome/free-solid-svg-icons";
+
 import img from "../assets/rayul-_M6gy9oHgII-unsplash.jpg";
 import { Contxt } from "@/store/Context";
 import demoProducts from "@/demoProducts";
@@ -32,8 +28,8 @@ export default function ProductDetails({id}) {
                 <span className="pl-3 text-neutral-500"> shop</span>
             </p>
             <div className="grapper flex lg:h-[450px] max-sm:flex-col">
-                <div className="image w-1/3 max-sm:w-full max-sm:h-32 ">
-                    <img src={img} alt="" className="h-full object-cover max-sm:w-full" />
+                <div className="image w-1/3 max-sm:w-full max-sm:h-32 rounded-md ">
+                    <img src={img} alt="" className="h-full object-cover max-sm:w-full rounded-md " />
                 </div>
                 <div className="text pl-7 w-2/3 max-sm:pt-6 max-sm:w-full max-sm:pl-0">
                     <h3 className="text-neutral-700 font-semibold text-lg">
@@ -82,7 +78,7 @@ export default function ProductDetails({id}) {
                             onClick={() => {
                                 context.HandleAddToCart(item.id);
                             }}
-                            className="bg-sky-500 px-4 py-3 text-white font-bold max-sm:py-1  max-sm:text-sm max-sm:px-2 "
+                            className="bg-sky-500 px-4 py-3 rounded-md  text-white font-bold max-sm:py-1  max-sm:text-sm max-sm:px-2 "
                         >
                             Add To Cart
                         </button>
