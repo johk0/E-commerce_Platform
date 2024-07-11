@@ -6,7 +6,7 @@ import {
 	faLeaf,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./nav.css";
 
 export default function Nav() {
@@ -27,12 +27,12 @@ export default function Nav() {
 			<header className="bg-white py-4 shadow-md px-5 max-md:hidden">
 				<div className="container mx-auto flex justify-between items-center">
 					<div className="flex items-center">
-						<a
-							href="/"
+						<Link
+							to="/"
 							className="text-2xl font-bold text-blue-500 flex items-center">
 							<FontAwesomeIcon icon={faLeaf} className="mr-2" />
 							<span>Candleleaf</span>
-						</a>
+						</Link>
 					</div>
 					<form className="ml-8 flex-grow text-center">
 						<input
@@ -49,28 +49,24 @@ export default function Nav() {
 						</button>
 					</form>
 					<div className="flex items-center">
-						<a href="/login" className="text-gray-700 font-medium mr-4">
+						<Link to="/login" className="text-gray-700 font-medium mr-4">
 							Login
-						</a>
-						<a
-							href="/register"
+						</Link>
+						<Link
+							to="/register"
 							className="text-white bg-blue-500 px-4 py-2 rounded-md font-medium">
 							Register
-						</a>
-						<div className="ml-4 flex justify-center items-center text-xl">
-							
-							<NavLink
-					to={"/cart"}
-					title="favorite"
-					htmlFor="favorite"
-					className="cursor-pointer px-5 text-gray-500">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className="cart fill-gray-700"><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
-				</NavLink>
-							
-							
-							<a href="/profile">
+						</Link>
+						<div className="ml-4">
+							<Link to="/cart" className="mr-4">
+								<FontAwesomeIcon
+									icon={faShoppingCart}
+									className="text-gray-700"
+								/>
+							</Link>
+							<Link to="/profile">
 								<FontAwesomeIcon icon={faUser} className="text-gray-700" />
-							</a>
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -81,35 +77,35 @@ export default function Nav() {
 			<header className="bg-white py-4 shadow-md px-5 md:hidden mb-5">
 				<div className="container mx-auto flex justify-between items-center">
 					<div className="flex items-center">
-						<a
-							href="/"
+						<Link
+							to="/"
 							className="text-2xl font-bold text-blue-500 flex items-center">
 							<FontAwesomeIcon icon={faLeaf} className="mr-2" />
 							<span className="max-sm:text-sm">Candleleaf</span>
-						</a>
+						</Link>
 					</div>
 
 					<div className="flex items-center">
-						<a
-							href="/login"
+						<Link
+							to="/login"
 							className="text-gray-700 font-medium mr-4 max-sm:text-sm">
 							Login
-						</a>
-						<a
-							href="/register"
+						</Link>
+						<Link
+							to="/register"
 							className="text-white max-sm:text-sm bg-blue-500 px-4 py-2 rounded-md font-medium">
 							Register
-						</a>
+						</Link>
 						<div className="ml-4">
-							<a href="/cart" className="mr-4">
+							<Link to="/cart" className="mr-4">
 								<FontAwesomeIcon
 									icon={faShoppingCart}
 									className="text-gray-700"
 								/>
-							</a>
-							<a href="/profile">
+							</Link>
+							<Link to="/profile">
 								<FontAwesomeIcon icon={faUser} className="text-gray-700" />
-							</a>
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -137,8 +133,8 @@ export default function Nav() {
 
 			<section className="md:hidden fixed m-auto bottom-3 z-30 left-2/4 -translate-x-1/2 ">
 				<NavLink
-					to={"/"}
 					end
+					to={"/"}
 					title="home"
 					htmlFor="home"
 					className="label flex flex-col items-center cursor-pointer">
