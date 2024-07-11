@@ -12,6 +12,7 @@ import { Input } from "../../UIcomponents/ui/input";
 import { Label } from "../../UIcomponents/ui/label";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { API } from "../api";
 
 export function LoginForm() {
 	const [formData, setFormData] = useState({
@@ -30,10 +31,7 @@ export function LoginForm() {
 		e.preventDefault();
 
 		try {
-			const response = await axios.post(
-				"https://mohammed390.pythonanywhere.com/api/login/",
-				formData
-			);
+			const response = await axios.post(API.login, formData);
 			// Show success message and navigate to home
 			toast.success("Logged in successfully!");
 			console.log("Login successful:", response.data);
