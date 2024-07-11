@@ -8,7 +8,9 @@ import { faComments, faPhone } from '@fortawesome/free-solid-svg-icons';
 const Cart = () => {
   let context = useContext(Contxt);
   const [cartItems, setCartItems] = useState([]);
-
+  const [coupon, setCoupon] = useState("");
+  const [Discount, setDiscount] = useState(0);
+  
   useEffect(() => {
     if (context.Cart.length > 0) {
       const itemsInCart = demoProducts.filter((item) => context.Cart.includes(item.id));
@@ -33,12 +35,22 @@ const Cart = () => {
     });
   };
 
+  const handleCouponChange = (e) => {
+    setCoupon(e.target.value);
+    if(e.target.value.length==0){
+      setDiscount(0);
+    }
+}; 
   const handleCouponApply = () => {
-    // will be done later
+    const listOfCopouns=["ms1", "sm1","ya1"];
+    if(listOfCopouns.includes(coupon)){
+setDiscount(0.3);
+    }
+  
   };
 
   const cartTotal = cartItems.reduce((acc, item) => acc + item.Price * item.quantity, 0);
-
+  let cartTotalAfterDiscount=coupon.length>0?cartTotal.toFixed(2)*Discount:Discount
   return (
     <div>
       <h1 className="text-3xl font-bold mb-4">Shopping Bag</h1>
@@ -80,8 +92,14 @@ const Cart = () => {
           <div className="bg-white p-4 rounded-lg shadow mb-4">
             <h2 className="text-xl font-bold mb-4">Calculated Shipping</h2>
             <form className="mb-4">
-              <select className="w-full mb-2 p-2 border rounded">
-                <option>Country</option>
+              <select className="w-full mb-2 p-2 border rounded" >
+              <option value="" disabled selected>Select your Country</option>
+                <option>Egypt</option>
+                <option>Saudi Arabia</option>
+                <option>Kuwait</option>
+                <option>United States</option>
+                <option>Germany</option>
+
               </select>
               <input type="text" className="w-full mb-2 p-2 border rounded" placeholder="State / City" />
               <input type="text" className="w-full mb-2 p-2 border rounded" placeholder="ZIP Code" />
@@ -90,22 +108,22 @@ const Cart = () => {
 
             <h2 className="text-xl font-bold mb-4">Coupon Code</h2>
             <form className="mb-4">
-              <input type="text" className="w-full mb-2 p-2 border rounded" placeholder="Coupon Code" />
+              <input type="text" onChange={handleCouponChange} className="w-full mb-2 p-2 border rounded" placeholder="Coupon Code" />
               <button type="button" onClick={handleCouponApply} className="bg-black text-white w-full py-2 rounded">Apply</button>
             </form>
 
             <div className="bg-yellow-100 p-4 rounded-lg">
               <p>Cart Subtotal: ${cartTotal.toFixed(2)}</p>
               <p>Design by Fluttertop: Free</p>
-              <p>Discount: -$4.00</p>
-              <p className="font-bold">Cart Total: ${(cartTotal - 4).toFixed(2)}</p>
+              <p>Discount:{cartTotalAfterDiscount}$</p>
+              <p className="font-bold">Cart Total: ${(cartTotal - cartTotalAfterDiscount).toFixed(2)}</p>
             </div>
             <button className="bg-yellow-500 text-white w-full py-2 rounded mt-4">Proceed to Checkout</button>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-around items-center p-4 bg-gray-100 rounded-lg shadow-md">
+      <div className="flex flex-col md:flex-row justify-around items-center p-4 bg-white rounded-lg shadow-md">
         <div className="flex items-center bg-orange-100 p-4 rounded-lg mb-4 md:mb-0 md:mr-4 w-full md:w-auto">
           <FontAwesomeIcon icon={faPhone} className="text-orange-500 w-8 h-8 mr-4" />
           <div>

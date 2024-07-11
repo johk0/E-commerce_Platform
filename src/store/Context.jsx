@@ -10,8 +10,10 @@ export default function Context({ children }) {
 	const [cart, setCart] = useState([]);
 	function HandleCart(index) {
 		setCart((prev)=>{
-			console.log(index)
+		if(prev.includes(index)===false){
 			return [index,...prev]
+		}
+		else{return [...prev]}
 		})
 	}
 	function HandleRemover(itemToRemove) {

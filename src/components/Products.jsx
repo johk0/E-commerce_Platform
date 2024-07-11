@@ -48,7 +48,7 @@ export default function Products() {
                 Buy Now
               </button>
               <button
-                onClick={() =>  Context.HandleAddToCart(item.id)}
+                onClick={() =>Context.HandleAddToCart(item.id)}
                 className="rounded-[50%] mb-1 bg-black ml-3 text-white w-7 h-7 text-center pb-1">
                 {Context.Cart.includes(item.id) ? (
                   <FontAwesomeIcon
