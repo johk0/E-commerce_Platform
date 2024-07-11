@@ -18,6 +18,9 @@ import RegisterLayout from "../Pages/Register/Layout";
 import LoginPage from "../Pages/Login";
 import LoginLayout from "../Pages/Login/Layout";
 
+import ProductPage from "../Pages/Product";
+import ProductLayout from "../Pages/product/Layout";
+
 const isLogin = false;
 
 const router = createBrowserRouter(
@@ -39,6 +42,9 @@ const router = createBrowserRouter(
 
 			<Route path="/login" element={<LoginLayout />}>
 				<Route index element={<LoginPage />} />
+			</Route>
+			<Route path="/product" element={<ProductLayout />}>
+				<Route index element={<ProductPage />} />
 			</Route>
 
 			{/* Learn layout

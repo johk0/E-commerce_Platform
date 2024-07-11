@@ -3,10 +3,16 @@ import { createContext, useState } from "react";
 export const Contxt = createContext({
 	Cart:[],
 	HandleAddToCart:()=>{},
-	HandleRemove:()=>{}
+	HandleRemove:()=>{},
+	component:"",
+	handleComponent:()=>{}
 });
 
 export default function Context({ children }) {
+	const [activeComponent,setActiveComponent]=useState("");
+	function handleComponentSwitch(id){
+		setActiveComponent(id);
+	}
 	const [cart, setCart] = useState([]);
 	function HandleCart(index) {
 		setCart((prev)=>{
@@ -22,7 +28,9 @@ export default function Context({ children }) {
 	const ctxval = {
 		Cart: cart,
 		HandleAddToCart: HandleCart,
-        HandleRemove:HandleRemover
+        HandleRemove:HandleRemover,
+		component:activeComponent,
+		handleComponent:handleComponentSwitch
 	};
 	return <Contxt.Provider value={ctxval}>{children}</Contxt.Provider>;
 }

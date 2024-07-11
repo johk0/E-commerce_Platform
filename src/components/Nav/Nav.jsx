@@ -26,7 +26,7 @@ export default function Nav() {
 
 	return (
 		<>
-			<header className="bg-white py-4 shadow-md px-5 max-md:hidden">
+			<header className="bg-white py-4 shadow-md px-5 max-md:hidden max-lg:px-4">
 				<div className="container mx-auto flex justify-between items-center">
 					<div className="flex items-center">
 						<Link

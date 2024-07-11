@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import img1 from "../assets/product-cover-5 (1).png";
+import { Link } from "react-router-dom";
 import demoProducts from "../demoProducts";
 // import img2 from '../assets/product-cover-5 (2).png'
 // import img3 from '../assets/product-cover-5 (3).png'
@@ -43,9 +44,9 @@ export default function Products() {
             </div>
             <div className="add w-1/2 flex items-end justify-end">
               <button
-                onClick={() => Context.HandleAddToCart(item.id)}
+                
                 className="rounded-2xl bg-black opacity-0 text-white w-fit h-fit text-center p-2 px-3 text-sm">
-                Buy Now
+             <Link to="/product" onClick={item.id}>Buy Now</Link>
               </button>
               <button
                 onClick={() =>Context.HandleAddToCart(item.id)}
@@ -90,7 +91,7 @@ export default function Products() {
 							<button
 								onClick={()=>{Context.HandleAddToCart(item.id)}}
 								className="rounded-2xl bg-black opacity-0 text-white w-fit h-fit text-center p-2 px-3 text-sm">
-								Buy Now
+							<Link to="/product" onClick={item.id}>Buy Now</Link>
 							</button>
 							<button
 								onClick={()=>{Context.HandleAddToCart(item.id)}}
