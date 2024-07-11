@@ -1,15 +1,16 @@
-
 import "./product.css";
 import ProductDetails from "@/components/ProductDetails";
 import Companies from "@/components/Companies";
 import Products from "@/components/Products";
+import { useParams } from "react-router-dom";
 const index = () => {
-    scrollTo(0,0);
+	const { id } = useParams();
+	scrollTo(0, 0);
 	return (
 		<>
-	<ProductDetails />
-    <Products/>
-    <Companies/>
+			<ProductDetails id={id} />
+			<Products />
+			<Companies />
 		</>
 	);
 };

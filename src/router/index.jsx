@@ -43,9 +43,12 @@ const router = createBrowserRouter(
 			<Route path="/login" element={<LoginLayout />}>
 				<Route index element={<LoginPage />} />
 			</Route>
-			<Route path="/product" element={<ProductLayout />}>
+
+			<Route path="/product/:id" element={<ProductLayout />}>
 				<Route index element={<ProductPage />} />
 			</Route>
+
+			<Route path="/product" element={<Navigate to="/" />} />
 
 			{/* Learn layout
 			<Route path="learn" element={<LearnLayout />}>

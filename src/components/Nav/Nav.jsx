@@ -11,7 +11,7 @@ import "./nav.css";
 import { Contxt } from "@/store/Context";
 
 export default function Nav() {
-	let context=useContext(Contxt);
+	let context = useContext(Contxt);
 	const [searchTerm, setSearchTerm] = useState("");
 	const [wantSearch, setWantSearch] = useState(false);
 
@@ -65,7 +65,14 @@ export default function Nav() {
 									icon={faShoppingCart}
 									className="text-gray-700"
 								/>
-								<span className={context.Cart.length>0?"absolute -top-4 bg-sky-500 rounded-[50%] flex justify-center items-center right-4 w-5 h-5 text-white ":"absolute -top-4 bg-sky-500 rounded-[50%]   right-4 w-5 h-5 text-white hidden"}>{context.Cart.length}</span>
+								<span
+									className={
+										context.Cart.length > 0
+											? "absolute -top-4 bg-sky-500 rounded-[50%] flex justify-center items-center right-4 w-5 h-5 text-white "
+											: "absolute -top-4 bg-sky-500 rounded-[50%]   right-4 w-5 h-5 text-white hidden"
+									}>
+									{context.Cart.length}
+								</span>
 							</Link>
 							<Link to="/profile">
 								<FontAwesomeIcon icon={faUser} className="text-gray-700" />
@@ -105,8 +112,14 @@ export default function Nav() {
 									icon={faShoppingCart}
 									className="text-gray-700"
 								/>
-																<span className={context.Cart.length>0?"absolute -top-4 bg-sky-500 rounded-[50%] flex justify-center items-center right-4 w-5 h-5 text-white ":"absolute -top-4 bg-sky-500 rounded-[50%]   right-4 w-5 h-5 text-white hidden"}>{context.Cart.length}</span>
-
+								<span
+									className={
+										context.Cart.length > 0
+											? "absolute -top-4 bg-sky-500 rounded-[50%] flex justify-center items-center right-4 w-5 h-5 text-white "
+											: "absolute -top-4 bg-sky-500 rounded-[50%]   right-4 w-5 h-5 text-white hidden"
+									}>
+									{context.Cart.length}
+								</span>
 							</Link>
 							<Link to="/profile">
 								<FontAwesomeIcon icon={faUser} className="text-gray-700" />
@@ -157,15 +170,16 @@ export default function Nav() {
 					<p className="text-white text-xs">Home</p>
 				</NavLink>
 				<NavLink
-					to={"/products"}
+					to={"/shop"}
 					title="cart"
 					htmlFor="cart"
 					className="label flex flex-col items-center cursor-pointer">
 					<input id="cart" name="page" type="radio" />
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-						<path d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z" />
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+						<path d="M495.9 166.6L447.7 54.4C441.6 39.4 427.6 32 412 32H164C148.4 32 134.4 39.4 128.3 54.4L80.1 166.6C57.2 171.2 40 190.6 40 213.6V408c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24v-24h384v24c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V213.6c0-23-17.2-42.4-40.1-47zm-55.9 94H135.9c-12.3 0-21.9-10.4-19.9-22.6l15.9-95.4c2-12.2 12.5-20.6 24.9-20.6h295.4c12.4 0 22.9 8.4 24.9 20.6l15.9 95.4c2 12.2-7.6 22.6-19.9 22.6zM328 128h-80c-8.8 0-16 7.2-16 16s7.2 16 16 16h80c8.8 0 16-7.2 16-16s-7.2-16-16-16zm-72 96h64c8.8 0 16-7.2 16-16s-7.2-16-16-16h-64c-8.8 0-16 7.2-16 16s7.2 16 16 16zm-72 96h208c8.8 0 16-7.2 16-16s-7.2-16-16-16H184c-8.8 0-16 7.2-16 16s7.2 16 16 16zm-80-64h32c8.8 0 16-7.2 16-16s-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16s7.2 16 16 16zm416 128h-32c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16zm-64-64h-32c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16z" />
 					</svg>
-					<p className="text-neutral-500 text-xs pt-1">Products</p>
+
+					<p className="text-neutral-500 text-xs pt-1">Shop</p>
 				</NavLink>
 				<NavLink
 					to={"/cart"}
@@ -177,8 +191,14 @@ export default function Nav() {
 						<path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
 					</svg>
 					<p className="text-neutral-500 text-xs pt-1">Cart</p>
-					<span className={context.Cart.length>0?"absolute -top-1 bg-sky-500 rounded-[50%] flex justify-center items-center right-0 w-5 h-5 text-white ":"absolute -top-4 bg-sky-500 rounded-[50%]   right-4 w-5 h-5 text-white hidden"}>{context.Cart.length}</span>
-
+					<span
+						className={
+							context.Cart.length > 0
+								? "absolute -top-1 bg-sky-500 rounded-[50%] flex justify-center items-center right-0 w-5 h-5 text-white "
+								: "absolute -top-4 bg-sky-500 rounded-[50%]   right-4 w-5 h-5 text-white hidden"
+						}>
+						{context.Cart.length}
+					</span>
 				</NavLink>
 				<label
 					title="notifications"
