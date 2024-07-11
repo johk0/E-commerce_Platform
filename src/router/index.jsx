@@ -21,6 +21,8 @@ import LoginLayout from "../Pages/Login/Layout";
 import ProductPage from "../Pages/Product";
 import ProductLayout from "../Pages/product/Layout";
 
+import ShopLayout from "../Pages/shop/layout";
+import ShopPage from "../Pages/shop"
 const isLogin = false;
 
 const router = createBrowserRouter(
@@ -47,6 +49,17 @@ const router = createBrowserRouter(
 				<Route index element={<ProductPage />} />
 			</Route>
 
+
+			<Route path="/shop" element={<ShopLayout />}>
+				<Route index element={<ShopPage />} />
+				<Route path=":id" element={<ShopPage />} /> 
+			</Route>
+			
+
+
+    
+
+		{/* Route for product details with :id parameter */}
 			{/* Learn layout
 			<Route path="learn" element={<LearnLayout />}>
 				<Route index element={<QuickPage />} />

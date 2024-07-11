@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import {
 	faSearch,
 	faUser,
@@ -157,7 +158,7 @@ export default function Nav() {
 					<p className="text-white text-xs">Home</p>
 				</NavLink>
 				<NavLink
-					to={"/products"}
+					to={"/shop"}
 					title="cart"
 					htmlFor="cart"
 					className="label flex flex-col items-center cursor-pointer">

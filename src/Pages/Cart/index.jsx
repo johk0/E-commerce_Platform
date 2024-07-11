@@ -6,6 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 const Cart = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
+
   let context = useContext(Contxt);
   const [cartItems, setCartItems] = useState([]);
   const [coupon, setCoupon] = useState("");

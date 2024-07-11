@@ -9,8 +9,6 @@ import demoProducts from "../demoProducts";
 // import img4 from '../assets/product-cover-5.png'
 import { Contxt } from "../store/Context";
 export default function Products() {
-	
-	
 	const Context = useContext(Contxt);
 	const [Load, setLoad] = useState(false);
 	function handleLoad() {
