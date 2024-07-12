@@ -1,6 +1,6 @@
 export const API = {
-	register: "https://mohammed390.pythonanywhere.com/api/register/",
-	login: "https://mohammed390.pythonanywhere.com/api/login/",
-	products: "https://fakestoreapi.com/products",
-	categories: "https://mohammed390.pythonanywhere.com/api/categories/",
+	register: "https://samiramustafa.pythonanywhere.com/users/register/",
+	login: "https://samiramustafa.pythonanywhere.com/users/login/",
+	products: "https://samiramustafa.pythonanywhere.com/users/products/",
+	categories: "https://samiramustafa.pythonanywhere.com/api/categories/",
 };
