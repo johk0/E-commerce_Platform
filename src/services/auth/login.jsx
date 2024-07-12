@@ -12,8 +12,15 @@ import { Input } from "../../UIcomponents/ui/input";
 import { Label } from "../../UIcomponents/ui/label";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { API } from "../api";
+import { useDispatch, useSelector } from "react-redux";
+import { changeLoginState } from "@/store/slices/loginState";
 
 export function LoginForm() {
+	// loginState is a slice of the Redux store
+	const dispatch = useDispatch();
+	const loginstate = useSelector((state) => state.loginState.value);
+	// console.log(loginstate);
 	const [formData, setFormData] = useState({
 		email: "",
 		password: "",
@@ -30,13 +37,11 @@ export function LoginForm() {
 		e.preventDefault();
 
 		try {
-			const response = await axios.post(
-				"https://mohammed390.pythonanywhere.com/api/login/",
-				formData
-			);
+			const response = await axios.post(API.login, formData);
 			// Show success message and navigate to home
 			toast.success("Logged in successfully!");
 			console.log("Login successful:", response.data);
+			dispatch(changeLoginState(true));
 			navigate("/"); // Redirect to the home page
 		} catch (error) {
 			// Show error message
@@ -48,7 +53,7 @@ export function LoginForm() {
 	};
 
 	return (
-		<Card className="mx-auto max-w-sm">
+		<Card className="mx-auto max-w-sm border-none">
 			<CardHeader>
 				<CardTitle className="text-xl">Login</CardTitle>
 				<CardDescription>Enter your credentials to log in</CardDescription>
@@ -61,7 +66,7 @@ export function LoginForm() {
 							<Input
 								id="email"
 								type="email"
-								placeholder="m@example.com"
+								placeholder="name@example.com"
 								value={formData.email}
 								onChange={handleInputChange}
 								required
@@ -77,11 +82,11 @@ export function LoginForm() {
 								required
 							/>
 						</div>
-						<Button type="submit" className="w-full">
+						<Button type="submit" className="w-full ">
 							Log In
 						</Button>
 						<Button variant="outline" className="w-full">
-							Sign in with GitHub
+							Log In with Google
 						</Button>
 					</div>
 					<div className="mt-4 text-center text-sm">

@@ -22,10 +22,13 @@ import ProductPage from "../Pages/Product";
 import ProductLayout from "../Pages/product/Layout";
 
 import ShopLayout from "../Pages/shop/layout";
-import ShopPage from "../Pages/shop"
+import ShopPage from "../Pages/shop";
 import ProfileLayout from "@/Pages/profile/layout";
 import ProfilePage from "@/Pages/profile";
 const isLogin = false;
+
+//
+import ProtectedRoute from "@/components/ProtectedRoutes";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -37,7 +40,14 @@ const router = createBrowserRouter(
 			</Route>
 
 			<Route path="/cart" element={<CartLayout />}>
-				<Route index element={<CartPage />} />
+				<Route
+					index
+					element={
+						<ProtectedRoute>
+							<CartPage />
+						</ProtectedRoute>
+					}
+				/>
 			</Route>
 
 			<Route path="/register" element={<RegisterLayout />}>
@@ -50,23 +60,19 @@ const router = createBrowserRouter(
 
 			<Route path="/product" element={<ProductLayout />}>
 				<Route index element={<ProductPage />} />
-				<Route path=":id" element={<ProductPage />} /> 
+				<Route path=":id" element={<ProductPage />} />
 			</Route>
-
 
 			<Route path="/shop" element={<ShopLayout />}>
 				<Route index element={<ShopPage />} />
-				<Route path=":id" element={<ShopPage />} /> 
+				<Route path=":id" element={<ShopPage />} />
 			</Route>
-			
+
 			<Route path="/profile" element={<ProfileLayout />}>
 				<Route index element={<ProfilePage />} />
 			</Route>
 
-
-    
-
-		{/* Route for product details with :id parameter */}
+			{/* Route for product details with :id parameter */}
 			{/* Learn layout
 			<Route path="learn" element={<LearnLayout />}>
 				<Route index element={<QuickPage />} />

@@ -12,8 +12,10 @@ import { Input } from "../../UIcomponents/ui/input";
 import { Label } from "../../UIcomponents/ui/label";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { API } from "../api";
 
 export function RegisterForm() {
+	console.log(API.register);
 	const [formData, setFormData] = useState({
 		username: "",
 		email: "",
@@ -31,13 +33,10 @@ export function RegisterForm() {
 		e.preventDefault();
 
 		try {
-			const response = await axios.post(
-				"https://mohammed390.pythonanywhere.com/api/register/",
-				formData
-			);
+			const response = await axios.post(API.register, formData);
 			// Show success message and navigate to home
 			toast.success("Account created successfully!");
-			navigate("/"); // Redirect to the home page
+			navigate("/login"); // Redirect to the home page
 		} catch (error) {
 			// Show error message
 			toast.error("Failed to create account. Please try again.");
@@ -46,7 +45,7 @@ export function RegisterForm() {
 	};
 
 	return (
-		<Card className="mx-auto max-w-sm">
+		<Card className="mx-auto max-w-sm border-none">
 			<CardHeader>
 				<CardTitle className="text-xl">Register</CardTitle>
 				<CardDescription>
