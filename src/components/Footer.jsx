@@ -4,15 +4,17 @@ import {
   faInstagram,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
-import { faLeaf } from "@fortawesome/free-solid-svg-icons";
+import { faLeaf,faMapMarkerAlt, faEnvelope, faPhone, faFax } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <>
-      <div className="flex justify-between bg-white items-center py-6 px-4">
+      <div className="flex justify-between bg-white items-center py-6 px-14">
         <div className="flex items-center">
           <a
             href="/"
-            className="text-2xl font-bold text-blue-500 flex items-center"
+            className="text-2xl font-bold text-sky-500 flex items-center"
           >
             <FontAwesomeIcon icon={faLeaf} className="mr-2" />
             <span>
@@ -39,58 +41,85 @@ export default function Footer() {
           </p>
         </div>
       </div>
-      <footer className="px-14 py-14 flex gap-x-3 gap-y-9 justify-between flex-wrap items-center  lg:items-start max-sm::flex max-sm:flex-col">
-        <ul className="px-4 text-sm max-sm:m-auto max-sm:pl-9">
-          <li className="font-bold pb-3 text-lg text-slate-800">
-            Company info
-          </li>
-          <li className="text-neutral-500 font-semibold pb-2">About Us</li>
-          <li className="text-neutral-500 font-semibold pb-2">Career</li>
-          <li className="text-neutral-500 font-semibold pb-2">We Are Hiring</li>
-          <li className="text-neutral-500 font-semibold pb-2">Blog</li>
-        </ul>
-        <ul className="px-4 text-sm max-sm:m-auto">
-          <li className="font-bold pb-3 text-lg text-slate-800">Legal</li>
-          <li className="text-neutral-500 font-semibold pb-2">About Us</li>
-          <li className="text-neutral-500 font-semibold pb-2">Career</li>
-          <li className="text-neutral-500 font-semibold pb-2">We Are Hiring</li>
-          <li className="text-neutral-500 font-semibold pb-2">Blog</li>
-        </ul>
-        <ul className="px-4 text-sm max-sm:m-auto">
-          <li className="font-bold pb-3 text-lg text-slate-800">Resources</li>
-          <li className="text-neutral-500 font-semibold pb-2">IOS & Android</li>
-          <li className="text-neutral-500 font-semibold pb-2">Watch a Demo</li>
-          <li className="text-neutral-500 font-semibold pb-2">Customers</li>
-          <li className="text-neutral-500 font-semibold pb-2">API</li>
-        </ul>
-        <ul className="px-4 text-sm max-sm:m-auto max-sm:pl-9">
-          <li className="font-bold pb-3 text-lg text-slate-800">Features</li>
+      <footer className="px-14 py-14 flex gap-x-40 max-lg:flex-col gap-y-9 justify-center max-md:gap-x-2 max-lg:gap-x-10 max-xl:gap-x-20 flex-wrap items-center max-lg:justify-normal  sm:items-start max-sm::flex max-sm:flex-col">
+     <div className="text w-1/5 max-lg:w-full">
+     <div className=" max-sm:text-center  max-md::w-full">
+        <h2 className="font-bold pb-2 text-2xl"><span className="text-sky-500">Easy</span> Shop</h2>
+        <p className="text-neutral-500 ">
+          offers a convenient and dynamic platform for consumers to purchase a wide range of products from the comfort of their homes. Leveraging the countrys increasing internet penetration and growing tech-savvy population
+        </p>
+       </div>
+     </div>
+       
+      <div className="AllLinks max-lg:w-full justify-around flex-grow flex m-auto max-sm:flex-col">
+      <ul className="px-4 text-sm max-sm:m-auto max-sm:pl-9 m-auto max-sm:pb-3">
+          <li className="font-bold pb-3 text-lg text-slate-800">Products</li>
           <li className="text-neutral-500 font-semibold pb-2">
-            Business Marketing
+            <Link to={`/shop/${-1}`}>All Products</Link>
           </li>
-          <li className="text-neutral-500 font-semibold pb-2">User Analytic</li>
-          <li className="text-neutral-500 font-semibold pb-2">Live Chat</li>
           <li className="text-neutral-500 font-semibold pb-2">
-            Unlimited Support
+            {" "}
+            <Link to={`/shop/${0}`}>Toys & Games</Link>
+          </li>
+          <li className="text-neutral-500 font-semibold pb-2">
+            {" "}
+            <Link to={`/shop/${1}`}>Sports Gear</Link>
+          </li>
+          <li className="text-neutral-500 font-semibold pb-2">
+            {" "}
+            <Link to={`/shop/${2}`}>devices</Link>
+          </li>
+          <li className="text-neutral-500 font-semibold pb-2">
+            {" "}
+            <Link to={`/shop/${3}`}>Clothes</Link>
+          </li>
+          <li className="text-neutral-500 font-semibold pb-2">
+            {" "}
+            <Link
+              to={`/shop/${4}`}
+             >
+              furniture
+            </Link>
           </li>
         </ul>
-        <ul className=" max-sm:m-auto ">
-          <li className="font-bold pb-3 text-lg text-slate-800">
-            Get In Touch
+        <ul className="px-4 text-sm max-sm:m-auto max-sm:pl-0 m-auto mt-1 max-sm:pb-3">
+          <li className="font-bold pb-3 text-lg text-slate-800">Links</li>
+          <li className="text-neutral-500 font-semibold pb-2">
+          <Link to={`/`}>Home</Link>
           </li>
-          <li className="flex border-2 border-neutral-100 rounded">
-            <input
-              type="email"
-              placeholder="Enter Your Email"
-              className="px-4 py-3 focus:outline-none max-sm:py-2 max-sm:px-3 max-sm:w-36 footerEmail"
-            />
-            <input
-              type="submit"
-              value="Subscribe"
-              className="bg-sky-500 px-4 py-3 text-white font-bold max-sm:py-2 max-sm:px-3"
-            />
+          <li className="text-neutral-500 font-semibold pb-2">
+          <Link to={`Shop`}>Shop</Link>
+          </li>
+          <li className="text-neutral-500 font-semibold pb-2">
+          <Link to={`/cart`}>Cart</Link>
+          </li>
+          <li className="text-neutral-500 font-semibold pb-2">
+          <Link to={`/profile`}>Profile</Link>
           </li>
         </ul>
+        <ul className="px-4 text-sm max-sm:m-auto max-sm:pl-20 m-auto mt-1">
+        <li className="font-bold pb-3 text-lg text-slate-800">Contact</li>
+        <li className="text-neutral-500 font-semibold pb-2">
+          <FontAwesomeIcon icon={faMapMarkerAlt} />
+          <span className="pl-3">Giza, smart city, Egypt</span>
+        </li>
+        <li className="text-neutral-500 font-semibold pb-2 max-sm:flex">
+          <FontAwesomeIcon icon={faEnvelope} />
+          <span className="pl-3 max-sm:block max-sm:text-xs">Tech-it-easy@gmail.com</span>
+        </li>
+        <li className="text-neutral-500 font-semibold pb-2">
+          <FontAwesomeIcon icon={faPhone} />
+          <span className="pl-3">+ 01 234 567 88</span>
+        </li>
+        <li className="text-neutral-500 font-semibold pb-2">
+          <FontAwesomeIcon icon={faFax} />
+          <span className="pl-3">+ 01 234 567 89</span>
+        </li>
+   
+        </ul>
+  
+      </div>
+       
       </footer>
     </>
   );

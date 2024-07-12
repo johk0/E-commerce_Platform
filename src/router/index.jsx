@@ -23,6 +23,8 @@ import ProductLayout from "../Pages/product/Layout";
 
 import ShopLayout from "../Pages/shop/layout";
 import ShopPage from "../Pages/shop"
+import ProfileLayout from "@/Pages/profile/layout";
+import ProfilePage from "@/Pages/profile";
 const isLogin = false;
 
 const router = createBrowserRouter(
@@ -57,6 +59,9 @@ const router = createBrowserRouter(
 				<Route path=":id" element={<ShopPage />} /> 
 			</Route>
 			
+			<Route path="/profile" element={<ProfileLayout />}>
+				<Route index element={<ProfilePage />} />
+			</Route>
 
 
     
