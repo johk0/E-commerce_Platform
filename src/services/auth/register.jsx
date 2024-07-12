@@ -45,7 +45,7 @@ export function RegisterForm() {
 	};
 
 	return (
-		<Card className="mx-auto max-w-sm">
+		<Card className="mx-auto max-w-sm border-none">
 			<CardHeader>
 				<CardTitle className="text-xl">Register</CardTitle>
 				<CardDescription>
