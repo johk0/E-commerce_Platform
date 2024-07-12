@@ -82,7 +82,7 @@ export function LoginForm() {
 								required
 							/>
 						</div>
-						<Button type="submit" className="w-full bg-primary">
+						<Button type="submit" className="w-full ">
 							Log In
 						</Button>
 						<Button variant="outline" className="w-full">
