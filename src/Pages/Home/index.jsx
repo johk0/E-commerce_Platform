@@ -8,6 +8,7 @@ import Services from "/src/components/Services.jsx";
 
 import Categories from "../../components/categories";
 import "./home.css";
+import Headphone from "@/components/Headphone";
 const HomePage = () => {
 
 	return (
@@ -17,6 +18,7 @@ const HomePage = () => {
 			<Categories />
 			<Explore />
 			<Products />
+			<Headphone/>
 			<Featured />
 			<Services />
 		</>
