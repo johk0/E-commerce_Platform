@@ -32,7 +32,7 @@ Price:98,
 quantity:1
     },
     {
-id:"t4",
+id:"t455",
 name:"T-shirt",
 Year:"2024",
 Brand:"NIKE",
@@ -56,7 +56,7 @@ Price:98,
 quantity:1
     },
     {
-id:"f4",
+id:"f466",
 name:"T-shirt",
 Year:"2024",
 Brand:"NIKE",
@@ -72,7 +72,15 @@ Price:98,
 quantity:1
     },
     {
-id:"d4",
+id:"d44",
+name:"T-shirt",
+Year:"2024",
+Brand:"NIKE",
+Price:98,
+quantity:1
+    },
+    {
+id:"s5",
 name:"T-shirt",
 Year:"2024",
 Brand:"NIKE",
@@ -88,7 +96,7 @@ Price:98,
 quantity:1
     },
     {
-id:"s4",
+id:"s6",
 name:"T-shirt",
 Year:"2024",
 Brand:"NIKE",
@@ -96,15 +104,7 @@ Price:98,
 quantity:1
     },
     {
-id:"s4",
-name:"T-shirt",
-Year:"2024",
-Brand:"NIKE",
-Price:98,
-quantity:1
-    },
-    {
-id:"d4",
+id:"d6",
 name:"T-shirt",
 Year:"2024",
 Brand:"NIKE",
