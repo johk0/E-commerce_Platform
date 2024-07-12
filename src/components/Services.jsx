@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 export default function Services() {
 	return (
-		<div className="grapper text-center pt-11 max-sm:px-6">
+		<div className="grapper text-center pt-11 max-sm:px-6 mb-5">
 			<div className="text">
 				<h2 className="font-semibold text-2xl pb-2">Why Us?</h2>
 				<p className="text-neutral-500 ">
