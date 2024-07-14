@@ -69,7 +69,14 @@ const router = createBrowserRouter(
 			</Route>
 
 			<Route path="/profile" element={<ProfileLayout />}>
-				<Route index element={<ProfilePage />} />
+				<Route
+					index
+					element={
+						<ProtectedRoute>
+							<ProfilePage />
+						</ProtectedRoute>
+					}
+				/>
 			</Route>
 
 			{/* Route for product details with :id parameter */}

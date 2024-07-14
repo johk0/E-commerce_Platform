@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 const ProductPage = () => {
 	const { id } = useParams();
+	console.log(id)
     useEffect(() => {
 		window.scrollTo({ top: 0, behavior: 'instant' });
 	  }, [id]);

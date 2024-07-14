@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Button } from "../../UIcomponents/ui/button";
 import {
@@ -15,6 +15,7 @@ import toast from "react-hot-toast";
 import { API } from "../api";
 import { useDispatch, useSelector } from "react-redux";
 import { changeLoginState } from "@/store/slices/loginState";
+import { changeuserData } from "@/store/slices/userData";
 
 export function LoginForm() {
 	// loginState is a slice of the Redux store
@@ -22,7 +23,7 @@ export function LoginForm() {
 	const loginstate = useSelector((state) => state.loginState.value);
 	// console.log(loginstate);
 	const [formData, setFormData] = useState({
-		email: "",
+		username: "",
 		password: "",
 	});
 
@@ -36,12 +37,14 @@ export function LoginForm() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
+		console.log(formData);
 		try {
 			const response = await axios.post(API.login, formData);
 			// Show success message and navigate to home
 			toast.success("Logged in successfully!");
 			console.log("Login successful:", response.data);
 			dispatch(changeLoginState(true));
+			dispatch(changeuserData(formData));
 			navigate("/"); // Redirect to the home page
 		} catch (error) {
 			// Show error message
@@ -62,12 +65,11 @@ export function LoginForm() {
 				<form onSubmit={handleSubmit}>
 					<div className="grid gap-4">
 						<div className="grid gap-2">
-							<Label htmlFor="email">Email</Label>
+							<Label htmlFor="username">Username</Label>
 							<Input
-								id="email"
-								type="email"
-								placeholder="name@example.com"
-								value={formData.email}
+								id="username"
+								type="text"
+								value={formData.username}
 								onChange={handleInputChange}
 								required
 							/>

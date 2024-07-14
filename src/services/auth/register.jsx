@@ -15,11 +15,11 @@ import toast from "react-hot-toast";
 import { API } from "../api";
 
 export function RegisterForm() {
-	console.log(API.register);
 	const [formData, setFormData] = useState({
 		username: "",
 		email: "",
 		password: "",
+		password2: "",
 	});
 
 	const navigate = useNavigate();
@@ -31,14 +31,18 @@ export function RegisterForm() {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		const { password, password2 } = formData;
+
+		if (password !== password2) {
+			toast.error("Passwords do not match!");
+			return;
+		}
 
 		try {
 			const response = await axios.post(API.register, formData);
-			// Show success message and navigate to home
 			toast.success("Account created successfully!");
-			navigate("/login"); // Redirect to the home page
+			navigate("/login");
 		} catch (error) {
-			// Show error message
 			toast.error("Failed to create account. Please try again.");
 			console.error("There was an error creating the account:", error);
 		}
@@ -82,6 +86,16 @@ export function RegisterForm() {
 								id="password"
 								type="password"
 								value={formData.password}
+								onChange={handleInputChange}
+								required
+							/>
+						</div>
+						<div className="grid gap-2">
+							<Label htmlFor="password2">Confirm Password</Label>
+							<Input
+								id="password2"
+								type="password"
+								value={formData.password2}
 								onChange={handleInputChange}
 								required
 							/>

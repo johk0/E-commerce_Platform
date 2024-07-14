@@ -1,10 +1,10 @@
 import { LoginForm } from "@/services/auth/login";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const index = () => {
 	const data = useSelector((state) => state);
 
-	console.log(data);
 	return (
 		<>
 			<div className="my-10">

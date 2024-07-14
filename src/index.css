@@ -71,6 +71,10 @@
 /* the trash */
 body {
 	background-color: #eff3f6;
+	@apply font-outfit;
+}
+html {
+	@apply font-outfit;
 }
 * {
 	scroll-behavior: smooth;

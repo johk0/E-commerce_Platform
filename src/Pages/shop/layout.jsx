@@ -4,16 +4,16 @@ import Footer from "../../components/Footer";
 import Row from "../../components/Row";
 
 const ShopLayout = () => {
-  return (
-    <>
-      <Row />
-      <Nav />
-     
-        <Outlet />
-  
-      <Footer />
-    </>
-  );
+	return (
+		<>
+			<Row />
+			<Nav />
+
+			<Outlet />
+
+			<Footer />
+		</>
+	);
 };
 
 export default ShopLayout;
