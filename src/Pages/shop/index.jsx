@@ -53,7 +53,7 @@ const Shop = () => {
 
 	// Function to filter products based on the first letter of ID
 	const filterProductsByFirstLetter = (products, letter) => {
-		return products.filter((product) => product.id.startsWith(letter));
+		return products.filter((product) => String(product.id).startsWith(letter));
 	};
 
 	// Function to search products by name
