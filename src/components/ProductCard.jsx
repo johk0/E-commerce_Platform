@@ -10,7 +10,7 @@ const ProductCard = ({ item }) => {
 		<div className="product text-center w-80 bg-white py-5 px-2 rounded-2xl pb-0 m-auto">
 			<div className="image w-11/12 m-auto h-1/2">
 				<img
-					src={item.images || img1} // Ensure item.image is used if available
+					src={(item.images && item.images[0].url) || img1} // Ensure item.image is used if available
 					alt="product image"
 					className="rounded-2xl w-full h-56 object-cover max-h-full"
 				/>
@@ -18,9 +18,9 @@ const ProductCard = ({ item }) => {
 			<div className="description flex py-4 px-5">
 				<div className="text w-1/2 text-start">
 					<p className="font-semibold pb-1 text-[15px]">
-						{item.title || "Snickers Off-White"}
+						{item.name || "Snickers Off-White"}
 					</p>
-					<p className="font-semibold pb-1">{item.Year || "2024"}</p>
+					<p className="font-semibold pb-1">{item.year || "2024"}</p>
 					<p className="text-neutral-500 pb-1">{item.brand || "NIKE"}</p>
 					<p className="font-semibold ">${item.price || "38.00"}</p>
 				</div>

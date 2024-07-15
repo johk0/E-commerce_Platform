@@ -1,33 +1,26 @@
-import { API } from "@/services/api";
+// src/redux/productSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { fetchProductsFromHygraph } from "@/services/api";
 
-// Async thunk for fetching products
 export const fetchProducts = createAsyncThunk(
 	"products/fetchProducts",
 	async () => {
-		const response = await fetch(API.products);
-		const data = await response.json();
-
-		return data.products;
+		const products = await fetchProductsFromHygraph();
+		return products;
 	}
 );
 
-// Create product slice
 const productSlice = createSlice({
 	name: "products",
 	initialState: {
 		items: [{ title: "test", id: 30000 }],
-		status: "idle", // for tracking request status
-		error: null, // for error tracking
+		status: "idle",
+		error: null,
 	},
-	reducers: {
-		// addProduct: (state, action) => {
-		//   state.items.push(action.payload);
-		// },
-	},
+	reducers: {},
 	extraReducers: (builder) => {
 		builder
-			.addCase(fetchProducts.pending, (state, action) => {
+			.addCase(fetchProducts.pending, (state) => {
 				state.status = "loading";
 			})
 			.addCase(fetchProducts.fulfilled, (state, action) => {
@@ -41,5 +34,4 @@ const productSlice = createSlice({
 	},
 });
 
-// export const { addProduct } = productSlice.actions;
 export default productSlice.reducer;

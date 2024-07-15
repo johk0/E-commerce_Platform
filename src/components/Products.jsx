@@ -7,7 +7,7 @@ import { Contxt } from "../store/Context";
 
 export default function Products() {
 	const productsData = useSelector((state) => state.getProducts.items);
-	console.log(productsData);
+	console.log(productsData, "here");
 
 	const Context = useContext(Contxt);
 	const [load, setLoad] = useState(false);
@@ -33,15 +33,18 @@ export default function Products() {
 							}`}>
 							<div className="image w-11/12 m-auto h-1/2">
 								<img
-									src={item.thumbnail}
-									alt={item.title || "Product image"}
+									src={
+										(item.images && item.images[0].url) ||
+										"https://via.placeholder.com/150"
+									}
+									alt={item.name || "Product image"}
 									className="rounded-2xl w-full h-56 object-cover"
 								/>
 							</div>
 							<div className="description flex py-4 px-5">
 								<div className="text w-1/2 text-start">
 									<p className="font-semibold pb-1 text-[15px]">
-										{item.title || "Snickers Off-White"}
+										{item.name || "Snickers Off-White"}
 									</p>
 									<p className="font-semibold pb-1">{item.year || "2024"}</p>
 									<p className="text-neutral-500 pb-1">

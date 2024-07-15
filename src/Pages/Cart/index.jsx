@@ -53,7 +53,7 @@ const Cart = () => {
 	};
 
 	const handleCouponApply = () => {
-		const listOfCoupons = ["ms1", "sm1", "ya1"];
+		const listOfCoupons = ["ms1", "sm1", "ya1", "ieee", "comsoc"];
 		if (listOfCoupons.includes(coupon)) {
 			setDiscount(0.3);
 			setCouponError("");
@@ -83,34 +83,38 @@ const Cart = () => {
 			<div className="flex flex-wrap -mx-2">
 				<div className="w-full lg:w-2/3 px-2 mb-4">
 					<div className="bg-white p-4 rounded-lg shadow">
-						{cartItems.map(({ id, images, title, price, quantity }) => (
-							<div key={id} className="flex items-center border-b pb-4 mb-4">
-								<img
-									src={images}
-									alt={title}
-									className="w-16 h-16 rounded-lg mr-4"
-								/>
-								<div className="flex-1">
-									<p className="font-semibold">{title}</p>
-									<p>${price}</p>
+						{cartItems.map(({ id, images, name, price, quantity }) => {
+							const d = "d";
+							// console.log(images[0].url, "images");
+							return (
+								<div key={id} className="flex items-center border-b pb-4 mb-4">
+									<img
+										src={images && images[0].url}
+										alt={name}
+										className="w-16 h-16 rounded-lg mr-4"
+									/>
+									<div className="flex-1">
+										<p className="font-semibold">{name}</p>
+										<p>${price}</p>
+									</div>
+									<div className="flex items-center">
+										<button
+											onClick={() => handleQuantityChange(id, -1)}
+											disabled={quantity === 1}
+											className="bg-gray-300 px-2 py-1 rounded-l">
+											-
+										</button>
+										<span className="px-4">{quantity}</span>
+										<button
+											onClick={() => handleQuantityChange(id, 1)}
+											className="bg-gray-300 px-2 py-1 rounded-r">
+											+
+										</button>
+									</div>
+									<div className="ml-4">${price * quantity}</div>
 								</div>
-								<div className="flex items-center">
-									<button
-										onClick={() => handleQuantityChange(id, -1)}
-										disabled={quantity === 1}
-										className="bg-gray-300 px-2 py-1 rounded-l">
-										-
-									</button>
-									<span className="px-4">{quantity}</span>
-									<button
-										onClick={() => handleQuantityChange(id, 1)}
-										className="bg-gray-300 px-2 py-1 rounded-r">
-										+
-									</button>
-								</div>
-								<div className="ml-4">${price * quantity}</div>
-							</div>
-						))}
+							);
+						})}
 					</div>
 				</div>
 

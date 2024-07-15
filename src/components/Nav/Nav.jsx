@@ -22,7 +22,6 @@ export default function Nav() {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [wantSearch, setWantSearch] = useState(false);
 
-	console.log(searchTerm);
 	const handleSearchChange = (event) => {
 		const value = event.target.value;
 		if (value.match(/^[a-zA-Z0-9\s]*$/)) {
@@ -39,17 +38,14 @@ export default function Nav() {
 		setSearchTerm("");
 	};
 	// Filter products based on search term
-	console.log(productsData);
 	const filteredProducts = productsData
 		? productsData.filter((product) =>
-				product.title.toLowerCase().startsWith(searchTerm.toLowerCase())
+				String(product.name).toLowerCase().startsWith(searchTerm.toLowerCase())
 		  )
 		: [];
 
 	// handle logout
-	console.log(loginState);
 	const handleLogout = () => {
-		console.log("logout");
 		dispatch(changeLoginState(false));
 		navigate("/login");
 	};
@@ -93,23 +89,25 @@ export default function Nav() {
 						{searchTerm && (
 							<div className="absolute left-0 mt-1 w-full bg-white border border-gray-300 rounded-md max-h-60 overflow-y-auto">
 								{filteredProducts.length ? (
-									filteredProducts.map((product) => (
-										<div
-											key={product.id}
-											className="px-4 py-2 hover:bg-gray-100 ">
-											<Link
-												to={`/product/${product.id}`}
-												onClick={() => setSearchTerm("")}
-												className="flex justify-start items-center">
-												<img
-													src={product.images}
-													alt=""
-													className="w-16 mr-4 h-16 object-contain"
-												/>
-												{product.title}
-											</Link>
-										</div>
-									))
+									filteredProducts.map((product) => {
+										return (
+											<div
+												key={product.id}
+												className="px-4 py-2 hover:bg-gray-100 ">
+												<Link
+													to={`/product/${product.id}`}
+													onClick={() => setSearchTerm("")}
+													className="flex justify-start items-center">
+													<img
+														src={product.images && product.images[0].url}
+														alt=""
+														className="w-16 mr-4 h-16 object-contain"
+													/>
+													{product.name}
+												</Link>
+											</div>
+										);
+									})
 								) : (
 									<div className="px-4 py-2">No results found</div>
 								)}
@@ -251,11 +249,11 @@ export default function Nav() {
 										onClick={() => setSearchTerm("")}
 										className="flex justify-start items-center">
 										<img
-											src={product.images}
+											src={product.images && product.images[0].url}
 											alt=""
 											className="w-12 mr-4 h-12 object-contain"
 										/>
-										{product.title}
+										{product.name}
 									</Link>
 								</div>
 							))

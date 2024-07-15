@@ -35,12 +35,12 @@ const CheckoutForm = () => {
 			}
 		);
 
-		if (payload.error) {
-			console.error("Payment failed: ", payload.error.message);
+		if (error) {
+			console.error("Payment failed: ", error.message);
 		} else {
-			console.log("Payment successful: ", payload.paymentIntent.id);
+			console.log("Payment successful: ", paymentIntent.id);
 			navigate("/confirmation", {
-				state: { paymentId: payload.paymentIntent.id },
+				state: { paymentId: paymentIntent.id },
 			});
 		}
 	};
@@ -48,28 +48,28 @@ const CheckoutForm = () => {
 	return (
 		<form
 			onSubmit={handleSubmit}
-			className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg space-y-6">
+			className="max-w-md mx-auto bg-white p-6 sm:p-8 rounded-lg shadow-lg space-y-6">
 			<h2 className="text-2xl font-bold text-center">Complete Your Payment</h2>
 			<div className="space-y-4">
-				<div className="flex space-x-4">
-					<div className="flex flex-col w-1/2">
+				<div className="flex flex-col sm:flex-row sm:space-x-4">
+					<div className="flex flex-col w-full sm:w-1/2">
 						<label htmlFor="firstName" className="text-sm font-medium">
 							First Name (optional)
 						</label>
 						<input
 							id="firstName"
 							type="text"
-							className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring  "
+							className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring"
 						/>
 					</div>
-					<div className="flex flex-col w-1/2">
+					<div className="flex flex-col w-full sm:w-1/2">
 						<label htmlFor="lastName" className="text-sm font-medium">
 							Last Name (optional)
 						</label>
 						<input
 							id="lastName"
 							type="text"
-							className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring  "
+							className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring"
 						/>
 					</div>
 				</div>
@@ -80,7 +80,7 @@ const CheckoutForm = () => {
 					<input
 						id="phoneNumber"
 						type="text"
-						className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring  "
+						className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring"
 					/>
 				</div>
 				<div className="flex flex-col">
@@ -96,7 +96,7 @@ const CheckoutForm = () => {
 					<input
 						id="name"
 						type="text"
-						className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring  "
+						className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring"
 						required
 					/>
 				</div>
@@ -106,7 +106,7 @@ const CheckoutForm = () => {
 					</label>
 					<select
 						id="country"
-						className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring  "
+						className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring"
 						required>
 						<option value="US">United States</option>
 						<option value="AE">United Arab Emirates</option>
@@ -114,25 +114,25 @@ const CheckoutForm = () => {
 						{/* Add more options as needed */}
 					</select>
 				</div>
-				<div className="flex space-x-4">
-					<div className="flex flex-col w-1/2">
+				<div className="flex flex-col sm:flex-row sm:space-x-4">
+					<div className="flex flex-col w-full sm:w-1/2">
 						<label htmlFor="region" className="text-sm font-medium">
 							Region/Province (optional)
 						</label>
 						<input
 							id="region"
 							type="text"
-							className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring  "
+							className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring"
 						/>
 					</div>
-					<div className="flex flex-col w-1/2">
+					<div className="flex flex-col w-full sm:w-1/2">
 						<label htmlFor="city" className="text-sm font-medium">
 							City (optional)
 						</label>
 						<input
 							id="city"
 							type="text"
-							className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring  "
+							className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring"
 						/>
 					</div>
 				</div>
@@ -143,7 +143,7 @@ const CheckoutForm = () => {
 					<input
 						id="streetAddress"
 						type="text"
-						className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring  "
+						className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring"
 					/>
 				</div>
 				<div className="flex flex-col">
@@ -153,13 +153,9 @@ const CheckoutForm = () => {
 					<input
 						id="zipCode"
 						type="text"
-						className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring  "
+						className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring"
 					/>
 				</div>
-				{/* <div className="flex justify-between items-center">
-					<span className="text-lg font-semibold">Plan Discount - 71%</span>
-					<span className="text-lg font-semibold text-green-600">-$480.00</span>
-				</div> */}
 				<div className="flex justify-between items-center">
 					<span className="text-lg font-semibold">Taxes & Fees</span>
 					<span className="text-lg font-semibold">$26.81</span>
@@ -176,21 +172,11 @@ const CheckoutForm = () => {
 						${(totalAmount + fees).toFixed(2)}
 					</span>
 				</div>
-				{/* <div className="flex flex-col">
-					<label htmlFor="couponCode" className="text-sm font-medium">
-						Have a coupon code?
-					</label>
-					<input
-						id="couponCode"
-						type="text"
-						className="mt-1 p-2 border border-gray-300 rounded-lg focus:ring  "
-					/>
-				</div> */}
 			</div>
 			<button
 				type="submit"
 				disabled={!stripe}
-				className="w-full py-2 px-4 bg-sky-500 text-white font-semibold rounded-lg shadow-md  focus:outline-none focus:ring-2  disabled:opacity-50">
+				className="w-full py-2 px-4 bg-sky-500 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 disabled:opacity-50">
 				Submit Secure Payment
 			</button>
 		</form>
