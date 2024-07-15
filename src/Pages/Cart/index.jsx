@@ -72,7 +72,7 @@ const Cart = () => {
 
 	// handle checkout
 	const handleCheckOut = () => {
-		console.log("Checkout");
+		navigate("/cart/pay", { state: { totalAmount: cartTotalAfterDiscount } });
 	};
 
 	return (
@@ -168,7 +168,6 @@ const Cart = () => {
 
 						<div className="bg-amber-300 p-4 rounded-lg">
 							<p>Cart Subtotal: ${cartTotal.toFixed(2)}</p>
-							<p>Design by Fluttertop: Free</p>
 							<p>Discount: ${discountAmount.toFixed(2)}</p>
 							<p className="font-bold">
 								Cart Total: ${cartTotalAfterDiscount.toFixed(2)}

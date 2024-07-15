@@ -23,10 +23,12 @@ import ProductLayout from "../Pages/product/Layout";
 
 import ShopLayout from "../Pages/shop/layout";
 import ShopPage from "../Pages/shop";
+
 import ProfileLayout from "@/Pages/profile/layout";
 import ProfilePage from "@/Pages/profile";
-const isLogin = false;
 
+import PaymentLayout from "@/Pages/Payment/layout";
+import PaymentPage from "@/Pages/Payment";
 //
 import ProtectedRoute from "@/components/ProtectedRoutes";
 
@@ -48,6 +50,9 @@ const router = createBrowserRouter(
 						</ProtectedRoute>
 					}
 				/>
+				<Route path="pay" element={<PaymentLayout />}>
+					<Route index element={<PaymentPage />} />
+				</Route>
 			</Route>
 
 			<Route path="/register" element={<RegisterLayout />}>
