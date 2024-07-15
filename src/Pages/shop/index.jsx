@@ -24,13 +24,22 @@ const Shop = () => {
 	const [filteredProducts, setFilteredProducts] = useState([]);
 	const [searchedData, setSearchedData] = useState(productsData);
 
+	const ids = {
+		0: "All Products",
+		1: "Toys & Games",
+		2: "Sports Gear",
+		3: "Devices",
+		4: "Clothes",
+		5: "Furniture",
+	};
+
 	useEffect(() => {
 		if (id) {
 			if (isNaN(id)) {
 				setSelectedSearch(id);
 				setSelectedFilter(0);
 			} else {
-				setSelectedFilter(parseInt(id) + 1);
+				setSelectedFilter(parseInt(id));
 				setSelectedSearch("");
 			}
 		} else {
@@ -51,9 +60,15 @@ const Shop = () => {
 		setCurrentPage(1);
 	};
 
-	// Function to filter products based on the first letter of ID
-	const filterProductsByFirstLetter = (products, letter) => {
-		return products.filter((product) => String(product.id).startsWith(letter));
+	// Function to filter products based on category name
+	const filterProductsByCategory = (products, category) => {
+		if (category === "All Products") {
+			return products;
+		}
+		return products.filter(
+			(product) =>
+				product.categories[0].name.toLowerCase() === category.toLowerCase()
+		);
 	};
 
 	// Function to search products by name
@@ -73,16 +88,11 @@ const Shop = () => {
 
 	useEffect(() => {
 		let filteredData = [...searchedData];
-		if (selectedFilter === 1) {
-			filteredData = filterProductsByFirstLetter(searchedData, "t");
-		} else if (selectedFilter === 2) {
-			filteredData = filterProductsByFirstLetter(searchedData, "s");
-		} else if (selectedFilter === 3) {
-			filteredData = filterProductsByFirstLetter(searchedData, "d");
-		} else if (selectedFilter === 4) {
-			filteredData = filterProductsByFirstLetter(searchedData, "c");
-		} else if (selectedFilter === 5) {
-			filteredData = filterProductsByFirstLetter(searchedData, "f");
+		if (selectedFilter > 0) {
+			const category = ids[selectedFilter];
+			filteredData = filterProductsByCategory(searchedData, category);
+		} else {
+			filteredData = searchedData;
 		}
 		setFilteredProducts(filteredData);
 		setCurrentPage(1);
@@ -173,8 +183,6 @@ const Shop = () => {
 				{sortedProducts
 					.slice((currentPage - 1) * 6, currentPage * 6)
 					.map((product, index) => {
-						const hi = "hi";
-						console.log(product);
 						return (
 							<Fragment key={index}>
 								<ProductCard item={product} />
