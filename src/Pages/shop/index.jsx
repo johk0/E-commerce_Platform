@@ -67,14 +67,20 @@ const Shop = () => {
 		}
 		return products.filter(
 			(product) =>
+				product.categories &&
+				Array.isArray(product.categories) &&
+				product.categories.length > 0 &&
+				product.categories[0].name &&
 				product.categories[0].name.toLowerCase() === category.toLowerCase()
 		);
 	};
 
 	// Function to search products by name
 	const searchProductsByName = (products, name) => {
-		return products.filter((product) =>
-			product.name.toLowerCase().startsWith(name.toLowerCase())
+		return products.filter(
+			(product) =>
+				product.name &&
+				product.name.toLowerCase().startsWith(name.toLowerCase())
 		);
 	};
 
